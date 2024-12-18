@@ -13,7 +13,7 @@ from forms import LoginForm, RegisterForm, NewProductForm, CommentForm, CheckOut
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
-stripe.api_key = 'sk_test_51QOHOPBQvJ4lL36LDXdZpkpSDroKbnPVnNc2SowxzvufYxMOEInx1R7hxiY84OdBfG5Qi6IOlLF1haPKPOPqr1px00G8cbhEXv'
+stripe.api_key = os.environ.get('STRIPE_API_KEY')
 SITE_DOMAIN = 'http://127.0.0.1:5000'
 # Configure Flask-Login
 login_manager = LoginManager()
