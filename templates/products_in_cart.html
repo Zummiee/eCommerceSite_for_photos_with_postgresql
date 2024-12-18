@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+      <!-- product section start -->
+      <div class="product_section layout_padding">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12">
+                  <h1 class="product_taital">All Products in {{ current_user.name }}'s Cart</h1>
+               </div>
+                {% if products: %}
+                <div>
+                <form method="POST" action="{{ url_for('check_out_products_in_cart') }}">
+                    {{ form.hidden_tag() }}
+                    <div>
+                        {{ form.submit() }}
+                    </div>
+                </form>
+                </div>
+                {% endif %}
+            </div>
+            <div class="product_section_2 layout_padding">
+               <div class="row">
+                  {% if product_dicts %}
+                  {% for product in product_dicts %}
+                  <div class="col-lg-3 col-sm-6">
+                     <div class="product_box">
+                        <h4 class="bursh_text">{{ product['name'] }}</h4>
+                        <p class="lorem_text">{{ product['description'] }}</p>
+                        <img src={{ product['img'] }} class="image_1">
+                        <p>quantity: {{ product['purchase_quantity'] }}</p>
+                        <div class="btn_main">
+                           <div class="buy_bt">
+                              <ul>
+                                 <li class="active"><a href={{ url_for("remove_from_cart", product_id=product['id']) }} style="color: black; font-weight: bold;">remove from cart</a></li>
+                              </ul>
+                           </div>
+                           <h3 class="price_text" style="color: black;"> €{{ product['price'] }}.00 </h3>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+                  {% else %}
+                  <p style="font-size: 30px; color: grey; margin-left: 440px">Your cart is empty</p>
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- product section end -->
+{% endblock %}

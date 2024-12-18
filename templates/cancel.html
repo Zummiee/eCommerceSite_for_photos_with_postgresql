@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%; text-align: center; padding-bottom: 120px;">
+    <div>
+      <h1 style="font-size: 26px;">Forgot to add something to your cart? Shop around then come back to pay!</h1>
+      <h2 style="font-size: 24px;">
+        <a href="{{ url_for('products') }}" style="color: blue; text-decoration: none;"
+           onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+          Click here to return to the products page
+        </a>
+      </h2>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+      <!-- about section start -->
+      <div class="about_section layout_padding">
+         <div class="container">
+            <div class="about_section_main">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="about_taital_main">
+                        <h1 class="about_taital">About Our Photo Studio</h1>
+                        <p class="about_text">Manuel's Photo Studio was established in the year of 2024. The studio holds a large collection of photographs taken by the photographer while he was travelling. In this photo studio, you will be able to find photographs focusing on people's daily lives, both in cities and the countryside alike, nature, unique architectures and many more! It is the photographer's passion to show you the different landscapes and various aspects of day-to-day life that he has witnessed throughout his journeys around the world over the years. Enjoy! </p>
+                        <div class="readmore_bt"><a href={{ url_for("products") }}>See Products</a></div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div><img src="static/assets/images/about.png" style="width: 1200px; height: 400px; margin-top: 36px; margin-left: 20px;" class="image_3"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- about section end -->
+{% endblock %}

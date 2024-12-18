@@ -1,0 +1,150 @@
+{% extends 'header.html' %}
+{% block content %}
+<!-- Page-specific styles -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Reset body margin and padding to remove space at the top */
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style for product image */
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-width: 500px; /* Adjust the max-width as needed */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+    }
+
+    /* Product container styles */
+    .product-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: transparent; /* Transparent background to merge with page background */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 0; /* Ensure the container starts at the top */
+    }
+
+    /* Spacing between header and product image */
+    .product-header {
+        margin-top: 0; /* Removed any top margin to ensure content goes all the way to the top */
+    }
+
+    /* Product name, description, price centered and spaced */
+    .product-info {
+        margin-top: 50px; /* Increased top margin to move product name lower */
+        text-align: center;
+    }
+
+    .product-info h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .product-info p {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Price (moved below the image) */
+    .product-price {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Buttons (Add to Cart & Buy Now) on the same line, centered */
+    .product-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .product-buttons a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #e0e0e0; /* Light grey */
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .product-buttons a:hover {
+        background-color: #d0d0d0;
+    }
+
+    .product-buttons .active a {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .product-buttons .active a:hover {
+        background-color: #0056b3;
+    }
+
+    /* In stock text (same font size as product name) */
+    .stock-status {
+        font-size: 18px;
+        color: #333;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Product content -->
+<div class="product-container">
+    <div class="product-header">
+        <!-- Content above the image (like header) goes here -->
+    </div>
+
+    <!-- Product Name and Description (above image) -->
+    <div class="product-info">
+        <br>
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+    </div>
+
+    <!-- Product image -->
+    <div>
+        <img src="{{ product.img_url }}" alt="Product Image" class="product-image">
+    </div>
+
+    <!-- Price below the image -->
+    <div class="product-price">
+        €{{ product.price }}.00
+    </div>
+
+    <!-- Stock status -->
+    <div class="stock-status">
+        {% if product.quantity > 0 %}
+            In stock: {{ product.quantity }} items left
+        {% else %}
+            Out of Stock
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Buttons: Check-out button -->
+    <div class="product-buttons">
+    <form method="POST" action="{{ url_for('create_checkout_session', product_id=product.id) }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+    </div>
+
+{% endblock %}

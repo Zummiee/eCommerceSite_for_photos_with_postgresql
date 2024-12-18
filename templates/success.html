@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thanks for your order!</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      font-family: Arial, sans-serif; /* Optional: to set a clean font */
+    }
+    section {
+      padding: 20px;
+    }
+    p {
+      font-size: 26px;  /* Makes the text in the paragraph larger */
+      font-weight: bold; /* Makes the paragraph text bold */
+    }
+    p a {
+      font-size: 26px; /* Makes the link text a bit larger */
+      color: black; /* Optional: makes the link blue */
+      text-decoration: none; /* Removes underline */
+    }
+    a {
+      font-size: 24px; /* Makes the link text a bit larger */
+      color: grey; /* Optional: makes the link blue */
+      text-decoration: none; /* Removes underline */
+    }
+    a:hover {
+      text-decoration: underline; /* Adds underline when hovering */
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <p>
+      We appreciate your business! If you have any questions, please email
+      <a href="mailto:orders@example.com">manuelphoto@example.com</a>.
+    </p>
+    <a href="{{ url_for('home') }}">click here to go back to the home page</a>
+  </section>
+</body>
+</html>

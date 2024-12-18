@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+      <p class="flash" style="color: red;">{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('add_product') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </div>
+        <br>
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}
+        </div>
+        <br>
+        <div>
+            {{ form.price.label }}<br>
+            {{ form.price(size=32) }}
+        </div>
+        <br>
+        <div>
+            {{ form.quantity.label }}<br>
+            {{ form.quantity(size=32) }}
+        </div>
+        <br>
+        <div>
+            {{ form.img_url.label }}<br>
+            {{ form.img_url(size=32) }}
+        </div>
+        <br>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+{% endblock %}
+

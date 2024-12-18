@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Page-specific styles -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Reset body margin and padding to remove space at the top */
+    body, html {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style for product image */
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-width: 500px; /* Adjust the max-width as needed */
+        display: block;
+        margin: 0 auto; /* Centers the image */
+    }
+
+    /* Product container styles */
+    .product-container {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: transparent; /* Transparent background to merge with page background */
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 0; /* Ensure the container starts at the top */
+    }
+
+    /* Spacing between header and product image */
+    .product-header {
+        margin-top: 0; /* Removed any top margin to ensure content goes all the way to the top */
+    }
+
+    /* Product name, description, price centered and spaced */
+    .product-info {
+        margin-top: 50px; /* Increased top margin to move product name lower */
+        text-align: center;
+    }
+
+    .product-info h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .product-info p {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Price (moved below the image) */
+    .product-price {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    /* Buttons (Add to Cart & Buy Now) on the same line, centered */
+    .product-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .product-buttons a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #e0e0e0; /* Light grey */
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        color: #333;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .product-buttons a:hover {
+        background-color: #d0d0d0;
+    }
+
+    .product-buttons .active a {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .product-buttons .active a:hover {
+        background-color: #0056b3;
+    }
+
+    /* In stock text (same font size as product name) */
+    .stock-status {
+        font-size: 18px;
+        color: #333;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+
+    /* Product details (underline and centered) */
+    .product-details {
+        margin-top: 15px;
+    }
+
+    .product-details a {
+        text-decoration: underline;
+        color: #007bff;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+    .product-details a:hover {
+        color: #0056b3;
+    }
+
+    /* Comment section styles */
+    .comment-section {
+        margin-top: 30px;
+    }
+
+    .comment-section li {
+        list-style: none;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .comment-section img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .comment-section .comment-text {
+        display: inline-block;
+        width: calc(100% - 50px);
+    }
+
+    .comment-section .comment-author {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Comment form styles */
+    .comment-form {
+        padding-left: 30px; /* Adds space to the left of the form */
+    }
+
+    .comment-form form div {
+        margin-bottom: 15px;
+    }
+
+    /* Adjusting form field width to 50% of its current length */
+    .comment-form form div input,
+    .comment-form form div textarea {
+        width: 50%; /* Set text field width to 50% */
+        margin-right: 10px; /* Adds space between input and button */
+    }
+
+    /* Add Comment button: Set width to 20% */
+    .comment-form form div button {
+        width: 20%; /* Set button width to 20% of its original size */
+        margin-top: 10px; /* Adds space between input field and button */
+        padding: 10px 0; /* Adjust button padding for consistency */
+    }
+
+    /* Align input and button left */
+    .comment-form form {
+        display: block;
+        align-items: flex-start; /* Align both the input and button to the left */
+    }
+
+</style>
+
+<!-- Product content -->
+<div class="product-container">
+    <div class="product-header">
+        <!-- Content above the image (like header) goes here -->
+    </div>
+
+    <!-- Product Name and Description (above image) -->
+    <div class="product-info">
+        <br>
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+    </div>
+
+    <!-- Product image -->
+    <div>
+        <img src="{{ product.img_url }}" alt="Product Image" class="product-image">
+    </div>
+
+    <!-- Price below the image -->
+    <div class="product-price">
+        €{{ product.price }}.00
+    </div>
+
+    <!-- Buttons: Add to Cart & Buy Now -->
+    <div class="product-buttons">
+        {% if product.quantity > 0 %}
+        <a href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart</a>
+        <a href="{{ url_for('create_checkout_session', product_id=product.id) }}">Buy Now</a>
+        {% endif %}
+    </div>
+
+    <!-- Stock status -->
+    <div class="stock-status">
+        {% if product.quantity > 0 %}
+            In stock: {{ product.quantity }} items left
+        {% else %}
+            Out of Stock
+        {% endif %}
+    </div>
+
+    <!-- Product details link -->
+    <div class="product-details">
+        <a href="{{ url_for('show_product', product_id=product.id) }}">Product Details</a>
+    </div>
+
+    <!-- Admin only: Remove and Edit product -->
+    {% if current_user.id == 1 %}
+    <div>
+        <a href="{{ url_for('remove_product', product_id=product.id) }}">Remove Product</a>
+        <a href="{{ url_for('edit_product', product_id=product.id) }}">Edit Product</a>
+    </div>
+    {% endif %}
+</div>
+<br>
+<!-- Product Review Form -->
+<div class="comment-form">
+    <form method="POST" action="{{ url_for('show_product', product_id=product.id) }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.text.label }}<br>
+            {{ form.text(size=80) }}
+        </div>
+        <br>
+        <div>
+            {{ form.submit() }}
+        </div>
+    </form>
+</div>
+<!-- Comment Section -->
+<div class="comment-section">
+    {% for comment in product.comments %}
+    <li>
+        <div>
+            <img src="{{ comment.comment_author.email | gravatar }}" alt="User Image">
+        </div>
+        <div class="comment-text">
+            {{ comment.text|safe }}
+            <span class="comment-author">, from user: {{ comment.comment_author.name }}</span>
+        </div>
+        <div>
+            {% if current_user.id == comment.comment_author.id %}
+            <a href="{{ url_for('delete_comment', comment_id=comment.id) }}">Delete Comment</a>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</div>
+{% endblock %}

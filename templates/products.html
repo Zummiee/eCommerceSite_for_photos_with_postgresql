@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Page-specific styles -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto; /* Centers the image */
+        }
+
+        .product_section {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .product_section_2 .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Ensures equal space on both sides */
+        }
+
+        .product_box {
+            background-color: #fffaf0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Allows content to flow naturally */
+            align-items: center;
+            height: 520px;
+        }
+
+        .col-lg-3, .col-sm-6 {
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 767px) {
+            .col-lg-3 {
+                width: 100%;
+            }
+        }
+
+        .product_box h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product_box p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Set the background color of the .btn_main container to white */
+        .btn_main {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: auto; /* Push buttons to the bottom */
+        }
+
+        .product-price {
+            text-align: right;
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px; /* Added space between the image and price */
+            margin-bottom: 15px;
+            width: 100%; /* Ensures it stretches across the width of the box */
+        }
+
+        .btn-main-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-main-buttons a {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            color: #333;
+        }
+
+        .btn-main-buttons a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-main-buttons .active a {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-main-buttons .active a:hover {
+            background-color: #0056b3;
+        }
+
+        .stock-status {
+            font-size: 16px;
+            color: #333;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .product-info {
+            margin-top: 15px;
+        }
+
+        .product-info a {
+            text-decoration: underline;
+            color: #007bff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .product-info a:hover {
+            color: #0056b3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+
+    <!-- Product content -->
+    <div class="product_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="product_taital">Our Products</h1>
+                </div>
+            </div>
+            <div class="product_section_2 layout_padding">
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="product_box">
+                            <h4 class="bursh_text">{{ product.name }}</h4>
+                            <p class="lorem_text">{{ product.description }}</p>
+                            <img src="{{ product.img_url }}" class="product-image">
+
+                            <!-- First line: Product Price on the top right -->
+                            <div class="product-price">€{{ product.price }}.00</div>
+
+                            <!-- Second line: Add to Cart & Buy Now buttons centered -->
+                            <div class="btn-main-buttons">
+                                {% if product.quantity > 0 %}
+                                <a href="{{ url_for('add_to_cart', product_id=product.id) }}">Add to Cart</a>
+                                <a href="{{ url_for('create_checkout_session', product_id=product.id) }}">Buy Now</a>
+                                {% endif %}
+                            </div>
+
+                            <!-- Third line: In stock... or Out of Stock centered -->
+                            <div class="stock-status">
+                                {% if product.quantity > 0 %}
+                                    In stock: {{ product.quantity }} items left
+                                {% else %}
+                                    Out of Stock
+                                {% endif %}
+                            </div>
+
+                            <!-- Fourth line: Product Details link centered -->
+                            <div class="product-info">
+                                <a href="{{ url_for('show_product', product_id=product.id) }}">Product Details</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
