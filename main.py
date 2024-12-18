@@ -14,7 +14,7 @@ from forms import LoginForm, RegisterForm, NewProductForm, CommentForm, CheckOut
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
 stripe.api_key = os.environ.get('STRIPE_API_KEY')
-SITE_DOMAIN = 'http://127.0.0.1:5000'
+SITE_DOMAIN = 'https://ecommercesite-for-photos.onrender.com'
 # Configure Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)

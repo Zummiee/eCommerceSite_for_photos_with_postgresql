@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f46475c0-3e4d-45c6-90c3-59c63725735b" name="Changes" comment="first git commit of the shopping site">
+    <list default="true" id="f46475c0-3e4d-45c6-90c3-59c63725735b" name="Changes" comment="second git commit of the shopping site: add psycopg2-binary==2.9.9 to requirements.txt, update gunicorn, replace stripe_api_key with an environ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734553871250</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="second git commit of the shopping site: add psycopg2-binary==2.9.9 to requirements.txt, update gunicorn, replace stripe_api_key with an environ">
+      <option name="closed" value="true" />
+      <created>1734555716557</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734555716557</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +113,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first git commit of the shopping site" />
-    <option name="LAST_COMMIT_MESSAGE" value="first git commit of the shopping site" />
+    <MESSAGE value="second git commit of the shopping site: add psycopg2-binary==2.9.9 to requirements.txt, update gunicorn, replace stripe_api_key with an environ" />
+    <option name="LAST_COMMIT_MESSAGE" value="second git commit of the shopping site: add psycopg2-binary==2.9.9 to requirements.txt, update gunicorn, replace stripe_api_key with an environ" />
   </component>
 </project>
