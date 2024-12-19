@@ -10,7 +10,8 @@ Website Features:
 9. Non logged-in users can use the "buy now" button to purchase products directly, but to add products to cart, they will need to log in first (non logged-in users will be redirected to the log-in page after clicking on "add to cart" button)
 10. Only admin users can add, edit or remove products.
 
-Notes:
+Notes: 
+- Deployed site can be found at https://ecommercesite-for-photos.onrender.com 
 - Developed the backend independently using Python.
 - Adapted a pre-existing frontend template to meet project requirements, some front-end adjustments still needed.
 - Not Started: About, Client, Contact html 
