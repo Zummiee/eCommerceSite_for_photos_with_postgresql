@@ -1,4 +1,4 @@
-Website Features:
+Main Website Features:
 1. Users can register, log in & log out.
 2. Flash messages will appear in red if users try registerring more than once with the same email or the same name, use an invalid email address during registeration, or input an incorrect password or non-registered email address during log-in.
 3. Users can view all available products by clicking the "SEE PRODUCTS" button or by selecting the "Products" option in the left sidebar of the homepage.
