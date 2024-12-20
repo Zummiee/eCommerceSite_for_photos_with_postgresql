@@ -220,6 +220,8 @@ def show_product(product_id):
     requested_product = db.get_or_404(Product, product_id)
     comment_form = CommentForm()
     if comment_form.validate_on_submit():
+        if not current_user.is_authenticated:
+            return redirect(url_for('login'))
         new_comment = Comment(text=comment_form.text.data,
                               parent_product=requested_product,
                               comment_author=current_user
