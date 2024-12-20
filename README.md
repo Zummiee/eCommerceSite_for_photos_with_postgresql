@@ -26,4 +26,5 @@ Notes:
 5) create htmls and routes for photo catogories under best products
 6) update script to allow users to adjust purchase amount on the shopping cart page
 7) also create a purchase record for single product purchase via "buy now" button
+8) update script to allow admin to delete comments as s/he sees fit
 
