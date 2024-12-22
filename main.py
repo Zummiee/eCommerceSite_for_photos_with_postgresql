@@ -146,11 +146,11 @@ def register():
         )
         db.session.add(new_user)
         db.session.commit()
-        # This line will authenticate the user with Flask-Login
+        # Authenticate the user with Flask-Login
         login_user(new_user)
         return redirect(url_for('home'))
     elif form.email.errors:
-        flash("Invalid email format, please enter a valid email address.", "error")
+        flash("Invalid email format, please enter a valid email address", "error")
         return redirect(url_for('register'))
     return render_template("register.html", form=form)
 
