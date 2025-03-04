@@ -12,7 +12,7 @@ from forms import LoginForm, RegisterForm, NewProductForm, CommentForm, CheckOut
 import os
 
 
-SITE_DOMAIN = "https://ecommercesite-for-photos.onrender.com"
+SITE_DOMAIN = "https://ecommercesite-for-photos-uygw.onrender.com"
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('FLASK_KEY')
