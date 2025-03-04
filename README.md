@@ -11,8 +11,7 @@ Main Website Features:
 10. After completing the checkout process, users will be redirected to a successful checkout page, which includes an option to return to the homepage.
 11. Once the checkout is successfully completed, the stock quantity of the relevant products will be updated, and the quantity of products in the user's shopping cart will be adjusted accordingly.
 12. Users have the option to cancel a created check-out session, upon doing so, they will be rediected to a page where they can see a rediect option to the products page (if a check-out session is cancelled, all products will still remain in the users cart)
-13. Non logged-in users can use the "buy now" button to purchase products directly, but to add products to cart, they will need to log in first (non logged-in users will be redirected to the log-in page after clicking on "add to cart" button).
-14. Only admin users can add, edit or remove products.
+13. Only admin users can add, edit or remove products.
 
 Notes: 
 - Deployed site can be found at https://ecommercesite-for-photos.onrender.com (not yet mobile friendly, please view via desktop)
