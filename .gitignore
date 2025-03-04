@@ -1,4 +1,5 @@
 # created by virtualenv automatically
-old htmls(do not add to git)/
 .venv/
-instance/
+.venv1/
+reference.html (DO NOT commit to git)/
+.idea/

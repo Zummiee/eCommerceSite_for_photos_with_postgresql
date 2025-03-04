@@ -7,7 +7,7 @@
                <div class="col-sm-12">
                   <h1 class="product_taital">All Products in {{ current_user.name }}'s Cart</h1>
                </div>
-                {% if products: %}
+                {% if product_dicts: %}
                 <div>
                 <form method="POST" action="{{ url_for('check_out_products_in_cart') }}">
                     {{ form.hidden_tag() }}
