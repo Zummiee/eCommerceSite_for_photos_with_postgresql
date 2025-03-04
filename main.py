@@ -292,28 +292,31 @@ def remove_product(product_id):
 @app.route("/add_to_cart/<int:product_id>")
 @login_required
 def add_to_cart(product_id):
-   conn = get_db_connection()
-   cur = conn.cursor()
-   cur.execute("SELECT quantity FROM products WHERE id = %s", (product_id,))
-   product = cur.fetchone()
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
+    else:
+       conn = get_db_connection()
+       cur = conn.cursor()
+       cur.execute("SELECT quantity FROM products WHERE id = %s", (product_id,))
+       product = cur.fetchone()
 
-   cur.execute(
-       "SELECT purchase_quantity FROM product_purchases WHERE product_id=%s AND user_id=%s;",
-       (product_id, current_user.id))
-   product_record = cur.fetchone()
-   if product_record:
-       cur.execute("UPDATE product_purchases SET purchase_quantity = purchase_quantity + 1 WHERE product_id = %s AND user_id = %s",
-                   (product_id, current_user.id))
-       conn.commit()
-   else:
        cur.execute(
-           "INSERT INTO product_purchases (product_id, user_id, purchase_quantity) "
-           "VALUES (%s, %s, %s);",
-           (product_id, current_user.id, 1))
-       conn.commit()
-   cur.close()
-   conn.close()
-   return redirect(url_for('products'))
+           "SELECT purchase_quantity FROM product_purchases WHERE product_id=%s AND user_id=%s;",
+           (product_id, current_user.id))
+       product_record = cur.fetchone()
+       if product_record:
+           cur.execute("UPDATE product_purchases SET purchase_quantity = purchase_quantity + 1 WHERE product_id = %s AND user_id = %s",
+                       (product_id, current_user.id))
+           conn.commit()
+       else:
+           cur.execute(
+               "INSERT INTO product_purchases (product_id, user_id, purchase_quantity) "
+               "VALUES (%s, %s, %s);",
+               (product_id, current_user.id, 1))
+           conn.commit()
+       cur.close()
+       conn.close()
+       return redirect(url_for('products'))
 
 
 @app.route("/remove_from_cart/<int:product_id>")
