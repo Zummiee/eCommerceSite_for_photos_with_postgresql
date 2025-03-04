@@ -3,7 +3,7 @@ Main Website Features:
 2. Flash messages will appear in red if users try registerring more than once with the same email or the same name, use an invalid email address during registeration, or input an incorrect password or non-registered email address during log-in.
 3. Users can view all available products by clicking the "SEE PRODUCTS" button or by selecting the "Products" option in the left sidebar of the homepage.
 4. Users can return to the home page by clicking the title in header or by selecting the "Home" option in the left sidebar of the homepage.
-5. Users can access detailed information about a specific product, add comments, delete previously added comments, and add the product to their cart.
+5. Users can access detailed information about a specific product, but only logged-in users are allowed to add comments, delete previously added comments, and add the product to their cart.
 6. Users can see all comments added to a given product, but can only delete comments they added themselves (delete comment button is only visible to users who created that comment).
 7. Non logged-in users will be redirected to the log-in page when trying to add comments to a given product.
 8. Users can purchase multiple quantities of the same product, with the quantity reflected in the corresponding product section on the shopping cart page.
