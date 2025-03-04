@@ -290,7 +290,6 @@ def remove_product(product_id):
 
 #cart
 @app.route("/add_to_cart/<int:product_id>")
-@login_required
 def add_to_cart(product_id):
     if current_user.is_authenticated:
         conn = get_db_connection()
