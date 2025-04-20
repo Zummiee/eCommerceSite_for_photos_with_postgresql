@@ -49,21 +49,21 @@
          <span class="toggle_icon" onclick="openNav()"><img src="/static/assets/images/toggle-icon.png"></span>
 
          <!-- Centered Logo -->
-         <div class="logo-container d-flex justify-content-center">
-            <a class="logo" style="margin-left: 250px;" href={{ url_for("home") }}>Manuel's Photo Studio</a>
+         <div class="logo-container">
+            <a id="studioLogo" class="logo" href={{ url_for("home") }}>Manuel's Photo Studio</a>
          </div>
 
          <form class="form-inline">
-            <div class="login_text">
-               <ul>
+            <div>
+               <ul class="login_text">
                   {% if not current_user.is_authenticated %}
                   <li><a href={{ url_for("register") }} style="color: black;">Join</a></li>
-                  <li><a href={{ url_for("login") }}><img src="/static/assets/images/user-icon.png"></a></li>
+                  <li><a href={{ url_for("login") }}><img class="login_logo" src="/static/assets/images/user-icon.png"></a></li>
                   {% endif %}
                   {% if current_user.is_authenticated %}
                   <li style="color: black;">Welcome {{ current_user.name }}!</li>
                   <li><a href={{ url_for("log_out") }} style="color: black;">Logout</a></li>
-                  <li><a href={{ url_for("check_out_products_in_cart") }}><img src="/static/assets/images/shopping_cart.png" style="width: 36px; height: 20px; vertical-align: middle; margin-top: -4px;"></a></li>
+                  <li><a href={{ url_for("check_out_products_in_cart") }}><img class="cart_logo" src="/static/assets/images/shopping_cart.png"></a></li>
                   {% endif %}
                </ul>
             </div>
