@@ -16,7 +16,7 @@
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css?v=1">
       <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="/static/css/style.css?v=1">
+      <link rel="stylesheet" type="text/css" href="/static/css/style.css?v=33">
       <!-- Responsive-->
       <link rel="stylesheet" href="/static/css/responsive.css?v=1">
       <!-- fevicon -->
@@ -49,21 +49,21 @@
          <span class="toggle_icon" onclick="openNav()"><img src="/static/assets/images/toggle-icon.png"></span>
 
          <!-- Centered Logo -->
-         <div class="logo-container d-flex justify-content-center">
-            <a class="logo" style="margin-left: 250px;" href={{ url_for("home") }}>Manuel's Photo Studio</a>
+         <div class="logo-container">
+            <a id="studioLogo" class="logo" href={{ url_for("home") }}>Manuel's Photo Studio</a>
          </div>
 
          <form class="form-inline">
-            <div class="login_text">
-               <ul>
+            <div>
+               <ul class="login_text">
                   {% if not current_user.is_authenticated %}
                   <li><a href={{ url_for("register") }} style="color: black;">Join</a></li>
-                  <li><a href={{ url_for("login") }}><img src="/static/assets/images/user-icon.png"></a></li>
+                  <li><a href={{ url_for("login") }}><img class="login_logo" src="/static/assets/images/user-icon.png"></a></li>
                   {% endif %}
                   {% if current_user.is_authenticated %}
                   <li style="color: black;">Welcome {{ current_user.name }}!</li>
                   <li><a href={{ url_for("log_out") }} style="color: black;">Logout</a></li>
-                  <li><a href={{ url_for("check_out_products_in_cart") }}><img src="/static/assets/images/shopping_cart.png" style="width: 36px; height: 20px; vertical-align: middle; margin-top: -4px;"></a></li>
+                  <li><a href={{ url_for("check_out_products_in_cart") }}><img class="cart_logo" src="/static/assets/images/shopping_cart.png"></a></li>
                   {% endif %}
                </ul>
             </div>
@@ -75,65 +75,48 @@
 {% block content %}{% endblock %}
 <!-- footer section start -->
 <div class="footer_section layout_padding">
-   <div class="container">
-      <!-- Centered Footer Logo -->
-      <div class="footer_logo d-flex justify-content-center">
-         <a href={{ url_for("home") }} >Manuel's Photo Studio</a>
-      </div>
+    <div class="container">
+       <div class="contact_section_2">
+          <div class="footer_section_components">
+             <div class="footer_section_component contact">
+                <h3 class="address_text">Contact Us</h3>
+                <div class="address_bt">
+                   <ul>
+                      <li>
+                         <a href="#">
+                         <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left10">Address : 12 Merrion Square, Dublin 2</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="#">
+                         <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left10">Call : +01 6849067345</span>
+                         </a>
+                      </li>
+                      <li>
+                         <a href="#">
+                         <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left10">Email : manuelphoto@gmail.com</span>
+                         </a>
+                      </li>
+                   </ul>
+                </div>
+             </div>
+             <div class="footer_section_component mission">
+                <h3 class="address_text">Our Mission</h3>
+                <p class="mission_text">At Manuel's Photo Studio, we capture world's most breath-taking landscapes and life's most beautiful moments with creativity and professionalism, and we would like very much like to share this beauty with YOU.</p>
+             </div>
+             <div class="footer_section_component best_products">
+                <h3 class="address_text">Best Products</h3>
+                <div class="best_product_list">
+                  <p class="best_product_text"> life in the city </p>
+                  <p class="best_product_text"> natural landscape </p>
+                  <p class="best_product_text"> the lovely animals </p>
+                </div>
 
-      <div class="contact_section_2">
-         <div class="row">
-            <div class="col-sm-4">
-               <h3 class="address_text">Contact Us</h3>
-               <div class="address_bt">
-                  <ul>
-                     <li>
-                        <a href="#">
-                        <i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left10">Address : 12 Merrion Square, Dublin 2</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#">
-                        <i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left10">Call : +01 6849067345</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#">
-                        <i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left10">Email : manuelphoto@gmail.com</span>
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-sm-4">
-               <p class="dummy_text">At Manuel's Photo Studio, we capture world's most breath-taking landscapes and life's most beautiful moments with creativity and professionalism, and we would like very much like to share this beauty with YOU.</p>
-            </div>
-            <div class="col-sm-4">
-               <div class="main">
-                  <h3 class="address_text">Best Products</h3>
-                  <p class="ipsum_text">life in the city natural landscape vitality in city life the lovely animals</p>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="social_icon">
-         <ul>
-            <li>
-               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li>
-               <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-               <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </li>
-            <li>
-               <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </li>
-         </ul>
-      </div>
-   </div>
-</div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
 <!-- footer section end -->
 
       <!-- copyright section start -->

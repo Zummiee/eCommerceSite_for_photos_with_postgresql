@@ -294,10 +294,6 @@ button {
     }
 }
 
-.login_text {
-    width: 100%;
-    float: left;
-}
 
 .login_text ul {
     margin: 0px;
@@ -308,7 +304,6 @@ button {
     font-size: 18px;
     color: #ffffff;
     text-transform: uppercase;
-    float: left;
     padding-left: 15px;
 }
 
@@ -806,19 +801,6 @@ button {
     padding-bottom: 30px;
 }
 
-.footer_logo {
-    width: 100%;
-    float: left;
-    text-align: center;
-    display: none;
-}
-
-.footer_logo_1 {
-    width: 100%;
-    float: left;
-    text-align: center;
-}
-
 .address_bt {
     width: 100%;
     float: left;
@@ -853,20 +835,20 @@ button {
     text-transform: uppercase;
 }
 
-.dummy_text {
+.mission_text {
     width: 100%;
     float: left;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffff;
     margin: 0px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 12px;
 }
 
-.ipsum_text {
+.best_product_text {
     width: 65%;
     float: left;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffff;
     margin: 0px;
     padding-top: 10px;
@@ -877,38 +859,50 @@ button {
     float: right;
 }
 
-.social_icon {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 40px;
-    border-bottom: 1px solid #f5ddb6;
-    padding-bottom: 30px;
+.footer_section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.social_icon ul {
-    margin: 0px;
-    padding: 0px;
-    display: inline-block;
-    text-align: center;
+.footer_section_components {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.social_icon li {
-    float: left;
-    font-size: 26px;
-    color: #f5ddb6;
-    padding: 10px;
+.footer_section_component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.social_icon li a {
-    color: #f5ddb6;
+.contact {
+ width: 850px;
 }
 
-.social_icon li a:hover {
-    color: #ffffff;
+.best_products {
+  width: 600px;
 }
 
+.best_products div {
+  width: 220px;
+}
 
+.best_product_text {
+  display: flex;
+  justify-content: center;
+}
+
+.best_product_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 /* footer section end */
 
 .copyright_section {
@@ -938,25 +932,43 @@ button {
     margin-top: 90px;
 }
 
-/* Centering the logo in the header */
-.navbar {
+/* Responsive header */
+@media (max-width: 1350px) {
+ .navbar {
+   display: grid;
+   grid-template-columns: 1fr 9fr 2fr;
+   gap: 50px;
+  }
+}
+
+@media (min-width: 1350px) {
+ .navbar {
    display: flex;
-   justify-content: space-between; /* Space between the left, center, and right items */
+   justify-content: space-between;
    align-items: center;
-}
-
-.logo-container {
-   display: flex;
-   justify-content: center;
-   flex-grow: 1; /* Ensures the logo takes the center space */
-   text-align: center;
-}
-
-.navbar .form-inline {
+ }
+ .logo-container {
    display: flex;
    justify-content: flex-end;
    align-items: center;
+   width: 850px;
 }
+
+}
+/* Centering the logo in the header */
+ .login_text {
+   display: flex;
+   justify-content: flex-end;
+   gap: 5px;
+   align-items: center;
+   width: 350px;
+ }
+
+.cart_logo {
+    width: 35px;
+    height: 20px;
+    padding-bottom: 3px;
+ }
 
 .sidenav {
    position: fixed;
@@ -972,15 +984,16 @@ button {
 }
 
 .logo-container a {
-   font-family: 'Open Sans', sans-serif; /* Use a clean, modern font */
-   font-weight: bold; /* Make the font bold */
-   font-size: 36px; /* Increase the font size */
-   color: black; /* Set the color to black */
-   text-decoration: none; /* Remove underline */
+   font-family: 'Open Sans', sans-serif;
+   font-weight: bold;
+   font-size: 36px;
+   color: black;
+   text-decoration: none;
    letter-spacing: 2px; /* Slightly space out the letters */
    text-transform: uppercase; /* Make the title uppercase for emphasis */
    transition: color 0.3s ease; /* Add transition for hover effect */
 }
+
 
 /* Header Logo on Hover */
 .logo-container a:hover {
@@ -988,33 +1001,75 @@ button {
 }
 
 
-/* Center the logo in the footer */
-.footer_logo {
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    text-align: center;
+.items {
+  display: flex;
+  justify-content: space-around;
 }
 
-.footer_section .container {
+@media (max-width: 800px) {
+  .items {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    justify-content: space-around;
+  }
 }
 
-.footer_logo a {
-   font-family: 'Open Sans', sans-serif; /* Same font as header for consistency */
-   font-weight: bold; /* Bold the font */
-   font-size: 30px; /* Font size for footer */
-   color: white; /* Color black */
-   text-decoration: none; /* No underline */
-   letter-spacing: 1px; /* Slight letter-spacing */
-   text-transform: uppercase; /* Uppercase to match header */
-   transition: color 0.3s ease; /* Smooth transition effect */
+
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid green;
+  height: 200px;
+  justify-content: space-evenly;
 }
 
-/* Footer Logo on Hover */
-.footer_logo a:hover {
-   color: #778899; /* Slightly darker color on hover */
+.image {
+  width: 120px;
+  height: 70px;
 }
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+.components {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px solid green;
+  height: 40px;
+}
+
+.second {
+  width: 350px;
+  display: flex;
+  justify-content:flex-end;
+}
+
+.third {
+  display: flex;
+  width: 250px;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
