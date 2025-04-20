@@ -20,7 +20,7 @@ Notes:
 - Not Started:
 1) create About, Client, Contact html
 2) update htmls to be mobile view friendly
-3) update base & header html so that page title will remain in the middle of the header for both logged-in and non logged-in users view
+3) DONE: update style.css so that page title will remain in the middle of the header for both logged-in and non logged-in users view
 4) update script to prevent users from adding more than what's in stock to cart for a given product
 5) create htmls and routes for photo catogories under best products
 6) update script to allow users to adjust purchase amount on the shopping cart page
